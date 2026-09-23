@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+
+  /* Dark Theme (Default) */
+  html.dark {
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #121212;
+    --bg-tertiary: #181818;
+    --bg-elevated: #202020;
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-gold: rgba(212, 175, 55, 0.25);
+    --text-primary: #f7f5f0;
+    --text-secondary: #a8a49c;
+    --text-muted: #736f68;
+    --accent-gold: #c5a059;
+    --accent-gold-light: #e8cca1;
+    --accent-gold-dark: #987635;
+  }
+
+  /* Light Theme */
+  html.light {
+    --bg-primary: #fcfbf9;
+    --bg-secondary: #f3efe8;
+    --bg-tertiary: #eae4da;
+    --bg-elevated: #ffffff;
+    --border-subtle: rgba(0, 0, 0, 0.08);
+    --border-gold: rgba(197, 160, 89, 0.35);
+    --text-primary: #121212;
+    --text-secondary: #4a4742;
+    --text-muted: #7c776f;
+    --accent-gold: #ab8639;
+    --accent-gold-light: #896726;
+    --accent-gold-dark: #634812;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    transition: background-color 0.4s ease, color 0.4s ease;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-serif);
+  }
+}
+
+/* Luxury Grain Effect */
+.bg-grain {
+  background-image: radial-gradient(rgba(212, 175, 55, 0.03) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2824;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c5a059;
+}
+
+/* Gold shimmer line */
+.gold-shimmer-line {
+  background: linear-gradient(90deg, transparent, rgba(197, 160, 89, 0.8), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 6s infinite ease-in-out;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Image reveal mask */
+.cinematic-zoom {
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.group:hover .cinematic-zoom {
+  transform: scale(1.06);
+}
+
+/* Subtle magnetic button transition */
+.magnetic-btn {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, background-color 0.25s ease;
+}
+.magnetic-btn:hover {
+  transform: translateY(-2px);
+}
